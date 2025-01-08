@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <link rel="icon" href="{{ url_for('static', filename='images/home.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+        
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        li {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: medium;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            width: 18rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            margin: 0;
+        }
+        .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid aqua;
+    border-radius: 10px;
+    background-color:white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    color: cornflowerblue;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.service-item {
+    width: 30%;
+    margin-bottom: 30px;
+    padding: 20px; 
+    border: 2px solid cyan; 
+    border-radius: 10px; 
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+.service-item:hover {
+    transform: translateY(-10px); /* Efek angkat saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap saat hover */
+    background-color: aqua;
+    color: black;
+    
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.footer {
+    margin-top: 1px;
+    padding: 20px 0;
+    background-color:#333;
+    text-align: center;
+    color: white;
+    margin-left: -153px;
+    margin-right: -153px;
+    margin-bottom: -115px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer .social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.footer .social-media img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer a {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+li {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+h2{
+    font-family: cursive;
+}
+.services-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #e9ecef;
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+.services-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Menambahkan transisi */
+}
+
+.service-box:hover {
+    transform: translateY(-10px); /* Animasi box akan naik ke atas saat di-hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 255, 0.5); /* Menambah efek shadow biru saat di-hover */
+}
+
+
+.service-icon {
+    font-size: 50px;
+    color: #ff6f00;
+    margin-bottom: 20px;
+}
+.service-icon img {
+    width: 80px; /* Atur ulang ukuran gambar */
+    height: 80px; /* Atur ulang ukuran gambar */
+    max-width: 100%; /* Pastikan gambar tidak lebih besar dari kontainer */
+    max-height: 100%; /* Pastikan gambar tidak lebih besar dari kontainer */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+.service-icon img:hover {
+    transform: scale(1.1); /* Zoom in gambar saat di-hover */
+}
+
+
+.service-box h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.service-box p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.learn-more {
+    font-size: 14px;
+    color: #ff6f00;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+}
+
+.learn-more:hover {
+    border-bottom: 2px solid #ff6f00;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                {% if session.get('user_id') %}
+                <li><a href="{{ url_for('app_page') }}">Emotion Detection</a></li>
+                {% endif %}
+                {% if session.get('user_id') %}
+                <li style="float:right"><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                <li style="float:right"><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <h3 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: blue;">D e t e x t</h3>
+    <h2><b>Known The Emotion By Text!</b></h2>
+    <main>
+        <div class="container">
+            <div class="services">
+                <div class="service-item">
+                    <h2>Detext</h2>
+                    <p>Detect merupakan website yang berguna mendeteksi emosi pada teks berbahasa Inggris.</p>
+                </div>
+                <div class="service-item">
+                    <h2>Emotion</h2>
+                    <p>Emosi yang terdapat pada website ini ada 7 macam yaitu, <b>happy, sad, anger, disgust, shame, fear, dan surprise.</b></p>
+                </div>
+                <div class="service-item">
+                    <h2>Dataset</h2>
+                    <p>Dataset website ini berasal dari dataset bernama <b>emotion stimulus</b> yang berjumlah 2415 baris dan diolah dengan tahap-tahap tertentu.</p>
+                </div>
+                <div class="service-item">
+                    <h2>Text Preprocessing</h2>
+                    <p>Dimulai dari <b>cleaning,tokenizing, stopwords, stemming</b> selanjutnya <b>pembobotan TF-IDF</b> lalu menambahkan metode <b>ensemble bagging</b> yang dikombinasikan dengan algoritma <b>naive bayes, k-nn, dan logistic regression.</b></p>
+                </div>
+                <div class="service-item">
+                    <h2>Implementation</h2>
+                    <p>Dataset yang telah diolah selanjutnya diterapkan pada website berbahasa python dibantu dengan library <b>flask</b> sebagai template, dan <b>pipeline</b> untuk pengolahan agar bisa mendeteksi.</p>
+                </div>
+                <div class="service-item">
+                    <h2>Detection</h2>
+                    <p>Website ini mendeteksi emosi pada teks yang menghasilkan tingkat confidence yang cukup memuaskan pada setiap emosi yang ada. </p>
+                </div>
+            </div>
+          
+        </div>
+        <section class="services-section">
+            <h2>Emotions</h2>
+            <div class="services-container">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="{{ url_for('static', filename='images/happy.png') }}" alt="Design">
+                    </div>
+                    <h3>Happy (Senang)</h3>
+                    <p><b>Emosi positif yang ditandai dengan perasaan puas, sukacita, atau kegembiraan. Kebahagiaan seringkali muncul saat seseorang mencapai tujuan, merasakan cinta, atau menikmati momen yang menyenangkan.</b></p>
+                    
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="{{ url_for('static', filename='images/sad.png') }}" alt="Building">
+                    </div>
+                    <h3>Sad (Sedih)</h3>
+                    <p><b>Emosi yang muncul ketika seseorang merasa kehilangan, kecewa, atau tidak puas. Kesedihan seringkali ditandai dengan perasaan duka, rendah diri, atau kehilangan minat pada hal-hal yang biasanya menyenangkan.</b></p>
+                   
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="{{ url_for('static', filename='images/anger.png') }}" alt="Planning">
+                    </div>
+                    <h3>Anger (Marah)</h3>
+                    <p><b>Emosi kuat yang timbul sebagai respons terhadap perasaan disakiti, diperlakukan tidak adil, atau dihalangi. Kemarahan dapat bervariasi dari iritasi ringan hingga kemarahan yang intens dan bisa mempengaruhi cara seseorang berpikir dan bertindak.</b></p>
+                    
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="{{ url_for('static', filename='images/shame.png') }}" alt="About Us">
+                    </div>
+                    <h3>Shame (Malu)</h3>
+                    <p><b>Emosi yang timbul ketika seseorang merasa gagal dalam memenuhi standar, harapan, atau norma yang diinginkan oleh diri sendiri atau orang lain. Rasa malu sering disertai dengan keinginan untuk menarik diri dari interaksi sosial atau bersembunyi dari orang lain.</b></p>
+                    
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="{{ url_for('static', filename='images/disgust.png') }}" alt="Repairs">
+                    </div>
+                    <h3>Disgust (Jijik)</h3>
+                    <p><b>Emosi yang timbul sebagai reaksi terhadap sesuatu yang dianggap menjijikkan atau tidak menyenangkan, baik secara fisik maupun moral. Rasa jijik sering kali membuat seseorang ingin menjauh atau menghindari sumber rasa jijik tersebut.</b></p>
+                 
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="{{ url_for('static', filename='images/fear.png') }}" alt="Maintenance">
+                    </div>
+                    <h3>Fear (Takut)</h3>
+                    <p><b>Emosi dasar yang muncul sebagai respons terhadap ancaman atau bahaya, baik yang nyata maupun yang dibayangkan. Rasa takut mendorong seseorang untuk melarikan diri, menghindari, atau bersiap menghadapi ancaman tersebut.</b></p>
+                  
+                </div>
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="{{ url_for('static', filename='images/surprised.png') }}" alt="Innovation">
+                    </div>
+                    <h3>Surprised (Terkejut)</h3>
+                    <p><b>Emosi yang terjadi sebagai respons terhadap sesuatu yang tidak terduga atau mengejutkan. Kejutan bisa bersifat positif (seperti kejutan ulang tahun) atau negatif (seperti berita buruk mendadak).</b></p>
+                    
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+ 
+<footer>
+    <div class="footer">
+        <p><br>Jl Sekolah Internasional 1-2, Antapani, Kota Bandung<br>40124</p>
+        <br>
+        <div class="social-media">
+            <a href="#"><img src="static/images/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="static/images/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="static/images/instagram.png" alt="Instagram"></a>
+        </div>
+    
+    </div>
+   
+</footer>
+    
+</body>
+
+</html>
